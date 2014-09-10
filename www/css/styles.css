@@ -2,25 +2,30 @@
 	padding: 20px;
 }
 #myChart1{
-	margin-left: 10px;
 	margin-bottom: 10px;
 }
+#myChart2{
+	margin-left: 10px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+}
 .tile-content{
-	margin-left: 10px
+	margin-left: 10px;
 	color: white;
 }
 
 .textTileContent h3{
-	margin-left: 5px;
+	margin-left: 15px;
 	 font-weight: light;
 	 font-size: 1.2em;	
 	 color: white;
 }
 
 .textTileContent p{
-	margin-left: 5px;
+	margin-left: 20px;
 	font-weight: light;
-	font-size: 0.5em;
+	font-size: 1em;
 	color: white;
 }
 
