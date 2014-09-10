@@ -6,7 +6,7 @@ var distanceMiles;
 var distanceCost;
 
 
-$.getScript("../api/async.js", function(){ return true;});
+
 
 
 function doTask(item, done) {
