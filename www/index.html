@@ -104,9 +104,9 @@
 		function returnFunction(retvals) {
 			alert('here');
 			fillerData();
-			document.getElementById("ddistance").value = retvals['distanceMiles'];
-			document.getElementById("dprice").value = retvals['distanceCost'];
-			document.getElementById("dcrime").value = 14;
+			document.getElementById("ddistance").innerHTML = retvals['distanceMiles'];
+			document.getElementById("dprice").innerHTML = retvals['distanceCost'];
+			document.getElementById("dcrime").innerHTML = 14;
 		}
 
 			$('#textfield').bind("enterKey",function(e){
