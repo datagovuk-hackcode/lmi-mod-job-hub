@@ -4059,7 +4059,7 @@ a {
   line-height: 15px;
   color: inherit;
   font-family: 'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 1.5em;
   position: relative;
 }
 .metro .navigation-bar .navigation-bar-content .element:hover,
