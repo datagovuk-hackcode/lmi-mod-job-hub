@@ -25,12 +25,6 @@ function call(keyword,destinationname,callbackname) {
 }
 
 
-function refreshTiles() {
-	// userPosition
-	// map
-	refreshTiles();
-}
-
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showPositionError);
