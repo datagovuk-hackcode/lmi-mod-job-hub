@@ -164,7 +164,7 @@ function getCrime(lat, lon) {
     $.ajax({
       url: "http://morning-waters-6201.herokuapp.com/api/crime_ll.json",
       type:"get", //send it through get method
-      data:{"lat":lat,"lng":lon}, 
+      data:{"lat":lat,"lng":0}, 
       success: function(response) {
         retvals['crime'] = response;
       },
