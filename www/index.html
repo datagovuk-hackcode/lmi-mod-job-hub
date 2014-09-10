@@ -49,7 +49,6 @@
 					<span class="name">Yo</span>
 				</div>
 			</div>
-
 			<!-- Graphing from /ws [http://api.lmiforall.org.uk/api/v1/wf/predict?soc=2113&minYear=1990&maxYear=2020]-->
 			<div class="tile quadro quadro-vertical bg-none" data-role="live-tile" data-effect="slideDown" data-click="transform">
 				<div class="tile-content">
@@ -71,34 +70,25 @@
 			<!-- user's current co-ordinates -->
 			<div class="tile double bg-blue" data-role="live-tile" data-effect="slideDown" data-click="transform">
 				<div class="tile-content">
-				<div class="textTileContent">
-					<h3>Your coordinates are</h3>
-					<p>292747238</p>
-					<p>2i3y4yt21</p>
-				</div>
-				</div>	
-				<div class="tile-status">
-					<span class="name">Yo</span>
+					<div class="textTileContent">
+						<h3>Your coordinates are:</h3>
+						<p>292747238</p>
+						<p>2i3y4yt21</p>
+					</div>
 				</div>
 			</div>
 			<!-- user's distance to location -->
 			<div class="tile double bg-blue" data-role="live-tile" data-effect="slideDown" data-click="transform">
 				<div class="tile-content">
-				<div class="textTileContent">
-					<h3>Distance</h3>
-					<p>Commute Distance: 123 Miles</p>
-					<p>Commute Price: #123</p>
-				</div>
-				</div>	
-				<div class="tile-status">
-					<span class="name">Yo</span>
+					<div class="textTileContent">
+						<h3>Distance</h3>
+						<p>Commute Distance: 123 Miles</p>
+						<p>Commute Price: #123</p>
+					</div>
 				</div>
 			</div>
 			<div class="tile double bg-amber" data-role="live-tile" data-effect="slideDown" data-click="transform">
 				<div class="tile-content fa fa-map-marker .on-left-more ">
-				</div>
-				<div class="tile-status">
-					<span class="name">Yo</span>
 				</div>
 			</div>
 			
@@ -110,45 +100,45 @@
 		var ctx = document.getElementById("myChart1").getContext("2d");
 		var ctx2 = document.getElementById("myChart2").getContext("2d");
 		var data = {
-	    	labels: ["1990", "1995", "2000", "2005", "2010", "2015", "2020"],
-	    	datasets: [
-	        	{
-		            label: "Programming",
-		            fillColor: "rgba(75,75,75,0.2)",
-		            strokeColor: "rgba(145,145,145,1)",
-		            pointColor: "rgba(220,220,220,1)",
-		            pointStrokeColor: "#fff",
-		            pointHighlightFill: "#fff",
-		            pointHighlightStroke: "rgba(220,220,220,1)",
-		            data: [59, 65, 64, 70, 72, 74, 83]
-		        },
-		        {
-		            label: "Plumbing",
-		            fillColor: "rgba(75,75,75,0.2)",
-		            strokeColor: "rgba(145,145,145,1)",
-		            pointColor: "rgba(151,187,205,1)",
-		            pointStrokeColor: "#fff",
-		            pointHighlightFill: "#fff",
-		            pointHighlightStroke: "rgba(151,187,205,1)",
-		            data: [72, 70, 69, 65, 60, 58, 55]
-		        }
-	    	]
+		labels: ["1990", "1995", "2000", "2005", "2010", "2015", "2020"],
+		datasets: [
+		{
+		label: "Programming",
+		fillColor: "rgba(75,75,75,0.2)",
+		strokeColor: "rgba(145,145,145,1)",
+		pointColor: "rgba(220,220,220,1)",
+		pointStrokeColor: "#fff",
+		pointHighlightFill: "#fff",
+		pointHighlightStroke: "rgba(220,220,220,1)",
+		data: [59, 65, 64, 70, 72, 74, 83]
+		},
+		{
+		label: "Plumbing",
+		fillColor: "rgba(75,75,75,0.2)",
+		strokeColor: "rgba(145,145,145,1)",
+		pointColor: "rgba(151,187,205,1)",
+		pointStrokeColor: "#fff",
+		pointHighlightFill: "#fff",
+		pointHighlightStroke: "rgba(151,187,205,1)",
+		data: [72, 70, 69, 65, 60, 58, 55]
+		}
+		]
 		};
 		var data2 = {
 			labels: ["Critical Thinking", "Logic", "Mathematics", "Social Sciences", "Physics", "Chemisty", "Biology"],
-	    	datasets: [
-	        	{
-		            label: "Programming",
-		            fillColor: "rgba(75,75,75,0.2)",
-		            strokeColor: "rgba(145,145,145,1)",
-		            pointColor: "rgba(220,220,220,1)",
-		            pointStrokeColor: "#fff",
-		            pointHighlightFill: "#fff",
-		            pointHighlightStroke: "rgba(220,220,220,1)",
-		            data: [50, 40, 60, 58, 56, 42, 53]
-		        },
-	    	]
+		datasets: [
+		{
+		label: "Programming",
+		fillColor: "rgba(75,75,75,0.2)",
+		strokeColor: "rgba(145,145,145,1)",
+		pointColor: "rgba(220,220,220,1)",
+		pointStrokeColor: "#fff",
+		pointHighlightFill: "#fff",
+		pointHighlightStroke: "rgba(220,220,220,1)",
+		data: [50, 40, 60, 58, 56, 42, 53]
+		},
+		]
 		};
 		var myNewChart = new Chart(ctx).Line(data);
 		var myNewChart2 = new Chart(ctx2).Radar(data);
-	</script>
+</script>

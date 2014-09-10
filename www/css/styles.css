@@ -5,6 +5,22 @@
 	margin-left: 10px;
 	margin-bottom: 10px;
 }
-.textTileContent{
+.tile-content{
 	margin-left: 10px
+	color: white;
 }
+
+.textTileContent h3{
+	margin-left: 5px;
+	 font-weight: light;
+	 font-size: 1.2em;	
+	 color: white;
+}
+
+.textTileContent p{
+	margin-left: 5px;
+	font-weight: light;
+	font-size: 0.5em;
+	color: white;
+}
+
