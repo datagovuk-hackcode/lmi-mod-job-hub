@@ -5,14 +5,14 @@
 </title>
 <script src="jquery-2.1.1.min.js"></script>
 <script src="ajaxcalls.js"></script>
-<script src="async.js"></script>
+
 <script>
-function dosomethinginreturn() {	
+function dosomethinginreturn(retvals) {	
 	alert("Return!");
 }
 </script>
 </head>
 <body>
-	<button type="button" onclick="call('football',dosomethinginreturn);">Click Me!</button>
+	<button type="button" onclick="call('football','Ipswich',dosomethinginreturn);">Click Me!</button>
 </body>
 </html>
