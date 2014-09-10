@@ -15,7 +15,7 @@
 		});
 		$('textarea').keyup(function(e){
 		if(e.keyCode == 13)
-		{
+		{;
 		$(this).trigger("enterKey");
 		}
 		});
@@ -54,6 +54,15 @@
 			<div class="tile quadro quadro-vertical bg-none" data-role="live-tile" data-effect="slideDown" data-click="transform">
 				<div class="tile-content">
 					<canvas id="myChart1" width="500" height="500" ></canvas>
+				</div>
+				<div class="tile-status">
+					<span class="name">LF Projections</span>
+				</div>
+			</div>
+
+			<div class="tile double double-vertical bg-none" data-role="live-tile" data-effect="slideDown" data-click="transform">
+				<div class="tile-content">
+					<canvas id="myChart2" width="250" height="250" ></canvas>
 				</div>
 				<div class="tile-status">
 					<span class="name">LF Projections</span>
@@ -119,6 +128,7 @@
 </html>
 <script>
 		var ctx = document.getElementById("myChart1").getContext("2d");
+		var ctx2 = document.getElementById("myChart2").getContext("2d");
 		var data = {
 	    	labels: ["1990", "1995", "2000", "2005", "2010", "2015", "2020"],
 	    	datasets: [
@@ -130,7 +140,7 @@
 		            pointStrokeColor: "#fff",
 		            pointHighlightFill: "#fff",
 		            pointHighlightStroke: "rgba(220,220,220,1)",
-		            data: [65, 59, 80, 81, 56, 55, 40]
+		            data: [59, 65, 64, 70, 72, 74, 83]
 		        },
 		        {
 		            label: "Plumbing",
@@ -140,9 +150,25 @@
 		            pointStrokeColor: "#fff",
 		            pointHighlightFill: "#fff",
 		            pointHighlightStroke: "rgba(151,187,205,1)",
-		            data: [28, 48, 40, 19, 86, 27, 90]
+		            data: [72, 70, 69, 65, 60, 58, 55]
 		        }
 	    	]
 		};
+		var data2 = {
+			labels: ["Critical Thinking", "Logic", "Mathematics", "Social Sciences", "Physics", "Chemisty", "Biology"],
+	    	datasets: [
+	        	{
+		            label: "Programming",
+		            fillColor: "rgba(220,220,220,0.2)",
+		            strokeColor: "rgba(220,220,220,1)",
+		            pointColor: "rgba(220,220,220,1)",
+		            pointStrokeColor: "#fff",
+		            pointHighlightFill: "#fff",
+		            pointHighlightStroke: "rgba(220,220,220,1)",
+		            data: [50, 40, 60, 58, 56, 42, 53]
+		        },
+	    	]
+		};
 		var myNewChart = new Chart(ctx).Line(data);
+		var myNewChart2 = new Chart(ctx2).Radar(data);
 	</script>
