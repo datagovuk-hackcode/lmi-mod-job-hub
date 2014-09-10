@@ -85,8 +85,8 @@
 				<div class="tile-content">
 					<div class="textTileContent">
 						<h3>Distance</h3>
-						<p>Commute Distance: 123 Miles</p>
-						<p>Commute Price: #123</p>
+						<p>Commute Distance: <span id="ddistance"></span</p>
+						<p>Commute Price: <span id="dprice"></p>
 					</div>
 				</div>
 			</div>
@@ -95,7 +95,7 @@
 					<div class="textTileContent">
 					<h3>Crimes that were committed</h3>
 				</div>
-				<div id="bigNum" >14</div>
+				<div id="bigNum" ><span id="dcrimes"></div>
 				</div>
 			</div>
 			
@@ -104,6 +104,9 @@
 		function returnFunction(retvals) {
 			alert('here');
 			fillerData();
+			document.getElementById("ddistance").value = retvals['distanceMiles'];
+			document.getElementById("dprice").value = retvals['distanceCost'];
+			document.getElementById("dcrime").value = 14;
 		}
 
 			$('#textfield').bind("enterKey",function(e){
