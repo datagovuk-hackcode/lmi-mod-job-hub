@@ -107,6 +107,20 @@
 			document.getElementById("ddistance").innerHTML = retvals['distanceMiles'];
 			document.getElementById("dprice").innerHTML = retvals['distanceCost'];
 			document.getElementById("dcrime").innerHTML = 14;
+
+			<!-- Added to display map -->
+			var frame = document.getElementById("frame");
+			var doc = frame.document;
+    		if(frame.contentDocument)
+        		doc = frame.contentDocument; // For NS6
+    		else if(frame.contentWindow)
+        	doc = frame.contentWindow.document; // For IE5.5 and IE6
+    		// Put the content in the iframe
+    		doc.open();
+    		doc.writeln(retvals["map"]);
+    		doc.close();
+    		<!-- End of map -->
+
 		}
 
 			$('#textfield').bind("enterKey",function(e){
