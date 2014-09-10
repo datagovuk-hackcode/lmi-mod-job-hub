@@ -6,26 +6,13 @@ var distanceMiles;
 var distanceCost;
 
 
+var retvals = new Array();
+var usercallbackfunction;
 
 
-
-function doTask(item, done) {
-  setTimeout(function() {
-    //console.log(item);
-    item();
-    done(); // call this when you're done with whatever you're doing
-  }, 50);
-}
-
-function call(keyword,callbackname) {
-    userKeyword = keyword;
-	var arr = [
-    	getLocation,
-    	getHotPoints
-	];
-	async.forEach(arr, doTask, function(err) {
-    	callbackname();
-	});
+function call(keyword,destinationname,callbackname) {
+    usercallbackfunction = callbackname;
+    getLocation();
 }
 
 
@@ -48,8 +35,12 @@ function showPosition(position) {
     var retpos = new Array();
     retpos['latitude'] = position.coords.latitude;
     retpos['longitude'] = position.coords.longitude; 
-    var test = position;
+    
     userPosition = retpos;
+    retvals['userPosition'] = userPosition;
+    getCrime( position.coords.latitude, position.coords.longitude);
+    getHotPoints();
+
     
 }
 
@@ -68,6 +59,7 @@ function showPositionError(error) {
             return "An unknown error occurred."
             break;
     }
+    retvals['userPosition'] = "ERROR";
 }
 
 function getDistanceByName(from, to) {
@@ -81,7 +73,8 @@ function getDistanceByName(from, to) {
       },
       error: function(xhr) {
         //alert("Error");
-      }
+      },
+        async:   false
     });
 }
 
@@ -95,11 +88,15 @@ function getDistanceByLatLon(from_lat, from_lon, to_lat, to_lon) {
         var obj = jQuery.parseJSON( '{ "name": "John" }' );
         distanceMiles = obj.distance;
         distanceCost = obj.cost;
+        retvals['distanceMiles'] = distanceMiles;
+        retvals['distanceCost'] = distanceCost;
       },
       error: function(xhr) {
         //alert("Error");
-      }
+      },
+       async:   false
     });
+
 }
 
 function getHotPoints() {
@@ -109,12 +106,32 @@ function getHotPoints() {
 	  data:{"keyword":userKeyword}, 
 	  success: function(response) {
 	    map = response;
+        retvals['map'] = map;
 	  },
 	  error: function(xhr) {
 	    //alert("Error");
-	  }
+	  },
+       async:   false
 	});
 }
+
+function getCrime(lat, lon) {
+    // http://morning-waters-6201.herokuapp.com/api/crime_ll.json?lat=52&lng=-1
+    $.ajax({
+      url: "http://morning-waters-6201.herokuapp.com/api/crime_ll.json",
+      type:"get", //send it through get method
+      data:{"lat":lat,"lon":lon}, 
+      success: function(response) {
+        retvals['crime'] = response;
+        usercallbackfunction(retvals);
+      },
+      error: function(xhr) {
+        //alert("Error");
+      },
+       async:   false
+    });
+}
+
 
 function getVacancies(postcode, keyword) {
     $.ajax({
@@ -122,10 +139,11 @@ function getVacancies(postcode, keyword) {
       type:"get", //send it through get method
       data:{"postcode":postcode,"kewords":keyword}, 
       success: function(response) {
-        map = response;
+        retvals['vacancies'] = response;
       },
       error: function(xhr) {
         //alert("Error");
-      }
+      },
+       async:   false
     });
 }
