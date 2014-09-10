@@ -9,28 +9,17 @@
 		<script src="../api/jquery-2.1.1.min.js"></script>
 		<script src="../api/ajaxcalls.js"></script>
 		<script src="js/chart.js"></script>
-		<script>
-			$('#textfield').bind("enterKey",function(e){
-		alert("Enter");
-		});
-		$('textarea').keyup(function(e){
-		if(e.keyCode == 13)
-		{;
-		$(this).trigger("enterKey");
-		}
-		});
-		</script>
 	</head>
 	<body class="metro">
 		<nav class="navigation-bar light">
 			<nav class="navigation-bar-content">
 				<item class="element ">JOB HUB</item>
 				<div class="element input-element place-right">
-					<form >
+					
 						<div class="input-control text">
 							<input id="textfield" type="text" placeholder="Search...">
 						</div>
-					</form>
+					
 				</div>
 
 				<div class="element input-element place-right">
@@ -111,10 +100,27 @@
 			</div>
 			
 		</div>
+		<script>
+		function returnFunction(retvals) {
+			alert('here');
+			fillerData();
+		}
+
+			$('#textfield').bind("enterKey",function(e){
+				call(document.getElementById('textfield').value,'Reading',returnFunction);
+				});
+		$('#textfield').keyup(function(e){
+		if(e.keyCode == 13)
+		{;
+		$(this).trigger("enterKey");
+		}
+		});
+		</script>
 		
 	</body>
 </html>
 <script>
+function fillerData(){
 		var ctx = document.getElementById("myChart1").getContext("2d");
 		var ctx2 = document.getElementById("myChart2").getContext("2d");
 		var data = {
@@ -159,4 +165,5 @@
 		};
 		var myNewChart = new Chart(ctx).Line(data);
 		var myNewChart2 = new Chart(ctx2).Radar(data);
+	}
 </script>
