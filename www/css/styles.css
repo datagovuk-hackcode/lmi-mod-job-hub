@@ -28,4 +28,9 @@
 	font-size: 1em;
 	color: white;
 }
+#bigNum{
+	font-size: 32px;
+	color: black;
+	text-align: center;
+}
 
