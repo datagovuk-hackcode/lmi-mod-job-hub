@@ -5,6 +5,13 @@ var distanceText;
 var distanceMiles;
 var distanceCost;
 
+var postcode;
+
+var myLat;
+var myLon;
+
+var destLat;
+var destLon;
 
 var retvals = new Array();
 var usercallbackfunction;
@@ -12,6 +19,8 @@ var usercallbackfunction;
 
 function call(keyword,destinationname,callbackname) {
     usercallbackfunction = callbackname;
+    userKeyword = keyword;
+    placeToLatLon(destinationname);
     getLocation();
 }
 
@@ -31,16 +40,51 @@ function getLocation() {
 }
 
 
+function placeToLatLon(place) {
+
+    var coords = new Array();
+
+    if (place == "London") {
+        coords['lat'] = "51.518571";
+        coords['lon'] = "-0.12085";
+        postcode = "WC1E6BT";
+    } else if (place == "Birmingham") {
+        coords['lat'] = "52.494278";
+        coords['lon'] = "-1.895142";
+        postcode = "B33DQ";
+    } else if (place == "Reading") {
+        coords['lat'] = "51.46235";
+        coords['lon'] = "-0.977783";
+        postcode = "RG11QH";
+    } else if (place == "Oxford") {
+        coords['lat'] = "51.752327";
+        coords['lon'] = "-1.252441";
+        postcode = "OX11BX";
+    } else if (place == "Cambridge") {
+        coords['lat'] = "52.210552";
+        coords['lon'] = "0.12085";
+        postcode = "CB10JH";
+    } 
+    destLat = coords['lat'];
+    destLon = coords['lon'];
+}
+
 function showPosition(position) {
     var retpos = new Array();
     retpos['latitude'] = position.coords.latitude;
     retpos['longitude'] = position.coords.longitude; 
     
+    myLat = position.coords.latitude;
+    myLon = position.coords.longitude;
+
     userPosition = retpos;
     retvals['userPosition'] = userPosition;
+
     getCrime( position.coords.latitude, position.coords.longitude);
     getHotPoints();
-
+    getDistanceByLatLon(myLat, myLon, destLat, destLon);
+    getVacancies();
+    usercallbackfunction(retvals);
     
 }
 
@@ -83,11 +127,11 @@ function getDistanceByLatLon(from_lat, from_lon, to_lat, to_lon) {
     $.ajax({
       url: "http://morning-waters-6201.herokuapp.com/api/distance_ll.json",
       type:"get", //send it through get method
-      data:{"from_lat":from_lat, "from_lon":from_lon, "to_lat":to_lat, "to_lon": to_lon}, 
+      data:{"from_lat":from_lat, "from_lng":from_lon, "to_lat":to_lat, "to_lng": to_lon}, 
       success: function(response) {
-        var obj = jQuery.parseJSON( '{ "name": "John" }' );
-        distanceMiles = obj.distance;
-        distanceCost = obj.cost;
+        //var obj = jQuery.parseJSON( response );
+        distanceMiles = response.distance;
+        distanceCost = response.cost;
         retvals['distanceMiles'] = distanceMiles;
         retvals['distanceCost'] = distanceCost;
       },
@@ -120,10 +164,9 @@ function getCrime(lat, lon) {
     $.ajax({
       url: "http://morning-waters-6201.herokuapp.com/api/crime_ll.json",
       type:"get", //send it through get method
-      data:{"lat":lat,"lon":lon}, 
+      data:{"lat":lat,"lng":lon}, 
       success: function(response) {
         retvals['crime'] = response;
-        usercallbackfunction(retvals);
       },
       error: function(xhr) {
         //alert("Error");
@@ -133,11 +176,11 @@ function getCrime(lat, lon) {
 }
 
 
-function getVacancies(postcode, keyword) {
+function getVacancies() {
     $.ajax({
       url: "http://api.lmiforall.org.uk/api/v1/vacancies/search",
       type:"get", //send it through get method
-      data:{"postcode":postcode,"kewords":keyword}, 
+      data:{"postcode":postcode,"kewords":userKeyword}, 
       success: function(response) {
         retvals['vacancies'] = response;
       },
