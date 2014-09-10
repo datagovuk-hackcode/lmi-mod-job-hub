@@ -4796,9 +4796,12 @@ a {
   width: 390px;
 }
 .metro .tile-group.four,
-.metro .tile-group.quadro {
+.metro .tile-group.square {
   width: 520px;
+  height: 520px;
 }
+
+
 .metro .tile-group.five {
   width: 650px;
 }
