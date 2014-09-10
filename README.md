@@ -3,8 +3,6 @@ RS-LmiModdingDay
 
 ###User Data
 - Current Location
-- Current Occupation
-- Current Age?
 - Desired Occupation?
 - Desired Location?
 
