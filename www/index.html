@@ -7,8 +7,23 @@
 		<link rel="stylesheet" href="css/styles.css">
 		<script src="../api/jquery-2.1.1.min.js"></script>
 		<script src="../api/ajaxcalls.js"></script>
+<<<<<<< HEAD
 		<script src="../api/async.js"></script>
 		
+=======
+		<script src="js/chart.js"></script>
+		<script>
+			$('#textfield').bind("enterKey",function(e){
+		alert("Enter");
+		});
+		$('textarea').keyup(function(e){
+		if(e.keyCode == 13)
+		{;
+		$(this).trigger("enterKey");
+		}
+		});
+		</script>
+>>>>>>> FETCH_HEAD
 	</head>
 	<body class="metro">
 		<nav class="navigation-bar light">
@@ -41,9 +56,34 @@
 					<span class="name">Yo</span>
 				</div>
 			</div>
+<<<<<<< HEAD
 			<div class="tile double bg-amber" data-click="transform">
 				<div class="tile-content fa fa-map-marker .on-left-more ">
+=======
+
+			<!-- Graphing from /ws [http://api.lmiforall.org.uk/api/v1/wf/predict?soc=2113&minYear=1990&maxYear=2020]-->
+			<div class="tile quadro quadro-vertical bg-none" data-role="live-tile" data-effect="slideDown" data-click="transform">
+				<div class="tile-content">
+					<canvas id="myChart1" width="500" height="500" ></canvas>
 				</div>
+				<div class="tile-status">
+					<span class="name">LF Projections</span>
+				</div>
+			</div>
+
+			<div class="tile double double-vertical bg-none" data-role="live-tile" data-effect="slideDown" data-click="transform">
+				<div class="tile-content">
+					<canvas id="myChart2" width="250" height="250" ></canvas>
+>>>>>>> FETCH_HEAD
+				</div>
+				<div class="tile-status">
+					<span class="name">LF Projections</span>
+				</div>
+			</div>
+
+			<div class="tile double bg-blue" data-role="live-tile" data-effect="slideDown" data-click="transform">
+				<div class="tile-content">
+				</div>	
 				<div class="tile-status">
 					<span class="name">Yo</span>
 				</div>
@@ -66,6 +106,38 @@
 					<span class="name">WUMBO COMBO</span>
 				</div>
 			</div>
+<<<<<<< HEAD
+=======
+			<div class="tile double bg-amber" data-role="live-tile" data-effect="slideDown" data-click="transform">
+				<div class="tile-content fa fa-map-marker .on-left-more ">
+				</div>
+				<div class="tile-status">
+					<span class="name">Yo</span>
+				</div>
+			</div>
+			<div class="tile double bg-amber" data-role="live-tile" data-effect="slideDown" data-click="transform">
+				<div class="tile-content fa fa-map-marker .on-left-more ">
+				</div>
+				<div class="tile-status">
+					<span class="name">Yo</span>
+				</div>
+			</div>
+			<div class="tile double bg-amber" data-role="live-tile" data-effect="slideDown" data-click="transform">
+				<div class="tile-content fa fa-map-marker .on-left-more ">
+				</div>
+				<div class="tile-status">
+					<span class="name">Yo</span>
+				</div>
+			</div>
+			<div class="tile double bg-amber" data-role="live-tile" data-effect="slideDown" data-click="transform">
+				<div class="tile-content fa fa-map-marker .on-left-more ">
+				</div>
+				<div class="tile-status">
+					<span class="name">Yo</span>
+				</div>
+			</div>
+			
+>>>>>>> FETCH_HEAD
 		</div>
 		<script>
 		function tilesRefresh() {
@@ -88,3 +160,49 @@
 		</script>
 	</body>
 </html>
+<script>
+		var ctx = document.getElementById("myChart1").getContext("2d");
+		var ctx2 = document.getElementById("myChart2").getContext("2d");
+		var data = {
+	    	labels: ["1990", "1995", "2000", "2005", "2010", "2015", "2020"],
+	    	datasets: [
+	        	{
+		            label: "Programming",
+		            fillColor: "rgba(220,220,220,0.2)",
+		            strokeColor: "rgba(220,220,220,1)",
+		            pointColor: "rgba(220,220,220,1)",
+		            pointStrokeColor: "#fff",
+		            pointHighlightFill: "#fff",
+		            pointHighlightStroke: "rgba(220,220,220,1)",
+		            data: [59, 65, 64, 70, 72, 74, 83]
+		        },
+		        {
+		            label: "Plumbing",
+		            fillColor: "rgba(151,187,205,0.2)",
+		            strokeColor: "rgba(151,187,205,1)",
+		            pointColor: "rgba(151,187,205,1)",
+		            pointStrokeColor: "#fff",
+		            pointHighlightFill: "#fff",
+		            pointHighlightStroke: "rgba(151,187,205,1)",
+		            data: [72, 70, 69, 65, 60, 58, 55]
+		        }
+	    	]
+		};
+		var data2 = {
+			labels: ["Critical Thinking", "Logic", "Mathematics", "Social Sciences", "Physics", "Chemisty", "Biology"],
+	    	datasets: [
+	        	{
+		            label: "Programming",
+		            fillColor: "rgba(220,220,220,0.2)",
+		            strokeColor: "rgba(220,220,220,1)",
+		            pointColor: "rgba(220,220,220,1)",
+		            pointStrokeColor: "#fff",
+		            pointHighlightFill: "#fff",
+		            pointHighlightStroke: "rgba(220,220,220,1)",
+		            data: [50, 40, 60, 58, 56, 42, 53]
+		        },
+	    	]
+		};
+		var myNewChart = new Chart(ctx).Line(data);
+		var myNewChart2 = new Chart(ctx2).Radar(data);
+	</script>
