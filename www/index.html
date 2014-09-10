@@ -8,6 +8,7 @@
 		<script src="js/jquery.js"></script>
 		<script src="../api/jquery-2.1.1.min.js"></script>
 		<script src="../api/ajaxcalls.js"></script>
+		<script src="../api/chart.js"></script>
 		<script>
 			$('#textfield').bind("enterKey",function(e){
 		alert("Enter");
@@ -18,7 +19,6 @@
 		$(this).trigger("enterKey");
 		}
 		});
-		
 		</script>
 	</head>
 	<body class="metro">
@@ -49,9 +49,20 @@
 					<span class="name">Yo</span>
 				</div>
 			</div>
+
+			<!-- Graphing from /ws [http://api.lmiforall.org.uk/api/v1/wf/predict?soc=2113&minYear=1990&maxYear=2020]-->
+			<div class="tile quadro quadro-vertical bg-none" data-role="live-tile" data-effect="slideDown" data-click="transform">
+				<div class="tile-content">
+					<canvas id="myChart1" width="500" height="500" ></canvas>
+				</div>
+				<div class="tile-status">
+					<span class="name">LF Projections</span>
+				</div>
+			</div>
+
 			<div class="tile double bg-blue" data-role="live-tile" data-effect="slideDown" data-click="transform">
 				<div class="tile-content">
-				</div>
+				</div>	
 				<div class="tile-status">
 					<span class="name">Yo</span>
 				</div>
@@ -73,8 +84,65 @@
 					<span class="name">Yo</span>
 				</div>
 			</div>
+			<div class="tile double bg-amber" data-role="live-tile" data-effect="slideDown" data-click="transform">
+				<div class="tile-content fa fa-map-marker .on-left-more ">
+				</div>
+				<div class="tile-status">
+					<span class="name">Yo</span>
+				</div>
+			</div>
+			<div class="tile double bg-amber" data-role="live-tile" data-effect="slideDown" data-click="transform">
+				<div class="tile-content fa fa-map-marker .on-left-more ">
+				</div>
+				<div class="tile-status">
+					<span class="name">Yo</span>
+				</div>
+			</div>
+			<div class="tile double bg-amber" data-role="live-tile" data-effect="slideDown" data-click="transform">
+				<div class="tile-content fa fa-map-marker .on-left-more ">
+				</div>
+				<div class="tile-status">
+					<span class="name">Yo</span>
+				</div>
+			</div>
+			<div class="tile double bg-amber" data-role="live-tile" data-effect="slideDown" data-click="transform">
+				<div class="tile-content fa fa-map-marker .on-left-more ">
+				</div>
+				<div class="tile-status">
+					<span class="name">Yo</span>
+				</div>
+			</div>
 			
 		</div>
 		
 	</body>
 </html>
+<script>
+		var ctx = document.getElementById("myChart1").getContext("2d");
+		var data = {
+	    	labels: ["1990", "1995", "2000", "2005", "2010", "2015", "2020"],
+	    	datasets: [
+	        	{
+		            label: "Programming",
+		            fillColor: "rgba(220,220,220,0.2)",
+		            strokeColor: "rgba(220,220,220,1)",
+		            pointColor: "rgba(220,220,220,1)",
+		            pointStrokeColor: "#fff",
+		            pointHighlightFill: "#fff",
+		            pointHighlightStroke: "rgba(220,220,220,1)",
+		            data: [65, 59, 80, 81, 56, 55, 40]
+		        },
+		        {
+		            label: "Plumbing",
+		            fillColor: "rgba(151,187,205,0.2)",
+		            strokeColor: "rgba(151,187,205,1)",
+		            pointColor: "rgba(151,187,205,1)",
+		            pointStrokeColor: "#fff",
+		            pointHighlightFill: "#fff",
+		            pointHighlightStroke: "rgba(151,187,205,1)",
+		            data: [28, 48, 40, 19, 86, 27, 90]
+		        }
+	    	]
+		};
+		var myNewChart = new Chart(ctx).Line(data);
+	</script>
