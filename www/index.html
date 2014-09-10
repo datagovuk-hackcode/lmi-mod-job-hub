@@ -59,7 +59,7 @@
 					<span class="name">LF Projections</span>
 				</div>
 			</div>
-
+			<!-- Graphing from /onet?-->
 			<div class="tile double double-vertical bg-none" data-role="live-tile" data-effect="slideDown" data-click="transform">
 				<div class="tile-content">
 					<canvas id="myChart2" width="250" height="250" ></canvas>
@@ -68,48 +68,28 @@
 					<span class="name">LF Projections</span>
 				</div>
 			</div>
-
+			<!-- user's current co-ordinates -->
 			<div class="tile double bg-blue" data-role="live-tile" data-effect="slideDown" data-click="transform">
 				<div class="tile-content">
+				<div class="textTileContent">
+					<h3>Your coordinates are</h3>
+					<p>292747238</p>
+					<p>2i3y4yt21</p>
+				</div>
 				</div>	
 				<div class="tile-status">
 					<span class="name">Yo</span>
 				</div>
 			</div>
-			<div class="tile bg-blue" data-click="transform">
-				<div class="tile-content icon">
-					<i class="fa fa-map-marker"></i>
+			<!-- user's distance to location -->
+			<div class="tile double bg-blue" data-role="live-tile" data-effect="slideDown" data-click="transform">
+				<div class="tile-content">
+				<div class="textTileContent">
+					<h3>Distance</h3>
+					<p>Commute Distance: 123 Miles</p>
+					<p>Commute Price: #123</p>
 				</div>
-				<div class="tile-status">
-					<span class="name">1337 jobs nearby <i class="fa fa-map-marker"></i>
-					</span>
-				</div>
-			</div>
-			
-			<div class="tile double bg-amber" data-role="live-tile" data-effect="slideDown" data-click="transform">
-				<div class="tile-content fa fa-map-marker .on-left-more ">
-				</div>
-				<div class="tile-status">
-					<span class="name">Yo</span>
-				</div>
-			</div>
-			<div class="tile double bg-amber" data-role="live-tile" data-effect="slideDown" data-click="transform">
-				<div class="tile-content fa fa-map-marker .on-left-more ">
-				</div>
-				<div class="tile-status">
-					<span class="name">Yo</span>
-				</div>
-			</div>
-			<div class="tile double bg-amber" data-role="live-tile" data-effect="slideDown" data-click="transform">
-				<div class="tile-content fa fa-map-marker .on-left-more ">
-				</div>
-				<div class="tile-status">
-					<span class="name">Yo</span>
-				</div>
-			</div>
-			<div class="tile double bg-amber" data-role="live-tile" data-effect="slideDown" data-click="transform">
-				<div class="tile-content fa fa-map-marker .on-left-more ">
-				</div>
+				</div>	
 				<div class="tile-status">
 					<span class="name">Yo</span>
 				</div>
@@ -134,8 +114,8 @@
 	    	datasets: [
 	        	{
 		            label: "Programming",
-		            fillColor: "rgba(220,220,220,0.2)",
-		            strokeColor: "rgba(220,220,220,1)",
+		            fillColor: "rgba(75,75,75,0.2)",
+		            strokeColor: "rgba(145,145,145,1)",
 		            pointColor: "rgba(220,220,220,1)",
 		            pointStrokeColor: "#fff",
 		            pointHighlightFill: "#fff",
@@ -144,8 +124,8 @@
 		        },
 		        {
 		            label: "Plumbing",
-		            fillColor: "rgba(151,187,205,0.2)",
-		            strokeColor: "rgba(151,187,205,1)",
+		            fillColor: "rgba(75,75,75,0.2)",
+		            strokeColor: "rgba(145,145,145,1)",
 		            pointColor: "rgba(151,187,205,1)",
 		            pointStrokeColor: "#fff",
 		            pointHighlightFill: "#fff",
@@ -159,8 +139,8 @@
 	    	datasets: [
 	        	{
 		            label: "Programming",
-		            fillColor: "rgba(220,220,220,0.2)",
-		            strokeColor: "rgba(220,220,220,1)",
+		            fillColor: "rgba(75,75,75,0.2)",
+		            strokeColor: "rgba(145,145,145,1)",
 		            pointColor: "rgba(220,220,220,1)",
 		            pointStrokeColor: "#fff",
 		            pointHighlightFill: "#fff",
